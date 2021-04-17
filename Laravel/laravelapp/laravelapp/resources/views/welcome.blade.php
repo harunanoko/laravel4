@@ -69,7 +69,10 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('tweets.index') }}">みんなの投稿</a>
+                        <a href="{{ route('tweets.create') }}">新規投稿</a>
                     @else
+                    <a href="{{ route('tweets.index') }}">みんなの投稿</a>
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))

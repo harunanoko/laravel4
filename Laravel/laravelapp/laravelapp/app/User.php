@@ -15,6 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    public function tweets(){
+        return $this->hasMany(Tweet::class);
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
