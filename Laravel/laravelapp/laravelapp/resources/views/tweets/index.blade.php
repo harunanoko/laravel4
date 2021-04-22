@@ -9,7 +9,17 @@
      <div class="username">
        <p>投稿者:</p>
        <p>{{ $tweet->user->name }}</p>
-       <a href="{{ route('tweets.edit') }}">編集</a>
+
+       @if($tweet->user->id === Auth::user()->id)
+       <a href="{{ route('tweets.edit', $tweet->id) }}">編集</a>
+
+       <form method="POST" action="{{ route('tweets.destroy', $tweet->id) }}">
+          @csrf
+          @method('DELETE')
+          <button type="submit">削除</button>
+       </form>
+
+       @endif
      </div>
 </div>
 @endforeach

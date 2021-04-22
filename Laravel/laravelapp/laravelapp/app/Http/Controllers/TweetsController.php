@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Tweet;
 use Illuminate\Http\Request;
-use App\Http\Requests\TweetRequest;
 use App\Http\Requests\TweetsRequest;
-use Validator;
 
 class TweetsController extends Controller
 {
@@ -96,7 +94,7 @@ class TweetsController extends Controller
         //DBに保存
         $tweet->save();
     
-        return redirect('/tweet');
+        return redirect('/tweets');
     }
 
     /**
@@ -111,6 +109,6 @@ class TweetsController extends Controller
 
         $tweet->delete();
     
-        return redirect('/tweet');
+        return redirect('/tweets');
     }
 }
