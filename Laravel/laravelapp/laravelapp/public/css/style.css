@@ -77,15 +77,3 @@ background-color: #ed576c;
     color: #ed576c;
 }
 
-a .editbtn{
-    width: 100px;
-padding: 3px;
-margin-top: 10px;
-border: 0;
-display: inline-block;
-text-align: center;
-letter-spacing: 0.1em;
-color: #fff;
-background-color: #ff7f50;
-}
-
