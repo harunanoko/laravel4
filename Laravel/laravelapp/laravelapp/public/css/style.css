@@ -8,7 +8,7 @@
 .twcontent h3{
     text-align: center;
     padding-top: 10px;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .twcontent .tweets{
@@ -25,6 +25,10 @@
 .username p{
     display: inline-block;
 }
+.username form {
+    display: inline;
+}
+
 
 /* 新規投稿ページ */
 .create {
@@ -72,3 +76,16 @@ background-color: #ed576c;
     display: inline-block;
     color: #ed576c;
 }
+
+a .editbtn{
+    width: 100px;
+padding: 3px;
+margin-top: 10px;
+border: 0;
+display: inline-block;
+text-align: center;
+letter-spacing: 0.1em;
+color: #fff;
+background-color: #ff7f50;
+}
+

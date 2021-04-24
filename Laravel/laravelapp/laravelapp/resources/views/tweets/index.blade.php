@@ -11,12 +11,12 @@
        <p>{{ $tweet->user->name }}</p>
 
        @if($tweet->user->id === Auth::user()->id)
-       <a href="{{ route('tweets.edit', $tweet->id) }}">編集</a>
+       <a class="edit_btn" href="{{ route('tweets.edit', $tweet->id) }}">編集</a>
 
        <form method="POST" action="{{ route('tweets.destroy', $tweet->id) }}">
           @csrf
           @method('DELETE')
-          <button type="submit">削除</button>
+          <button class="delete_btn" style="display: inline-block;" type="submit">削除</button>
        </form>
 
        @endif

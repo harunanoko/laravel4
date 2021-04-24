@@ -5,7 +5,8 @@
 <div class="create">
    <h3>編集</h3>
    <form action="{{ route('tweets.update', $tweet->id) }}" method="POST">
-      @csrf
+        @csrf
+        @method('put')
         @if (count($errors) > 0)
           <p>入力に問題があります。再入力して下さい。</p>
         @endif
