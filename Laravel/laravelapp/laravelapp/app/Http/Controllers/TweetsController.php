@@ -58,10 +58,7 @@ class TweetsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)//詳細表示
-    {
-        
-    }
+ 
 
     /**
      * Show the form for editing the specified resource.
