@@ -21,6 +21,13 @@
 
        @endif
      </div>
+
+     <div>
+        @if()
+         
+        @else
+        
+     </div>
 </div>
 @endforeach
 @endsection
