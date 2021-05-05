@@ -20,6 +20,10 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
+    public function like(){
+        return $this->hasMany(Like::class, 'tweet_id');
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];

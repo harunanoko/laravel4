@@ -38,47 +38,14 @@ class LikesController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $like= new Like;
-        $like->user_id=Auth::id();
-        $like->tweet_id=$id;
-        $like->save();
+        Like::create([
+            'tweet_id' => $id,
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect('/tweets');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -88,8 +55,7 @@ class LikesController extends Controller
      */
     public function destroy($id)
     {
-        $user_id=Auth::id();
-        $like=Like::where('user_id', $user_id)->where('tweet_id', $id)->first();
+        $like = Like::where('tweet_id', $id)->where('user_id', Auth::id())->first();
         $like->delete();
 
         return redirect('/tweet');

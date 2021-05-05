@@ -23,10 +23,21 @@
      </div>
 
      <div>
-        @if()
-         
+        @if($tweet->is_liked_by_auth_user())
+          <form method="POST" action="{{ route('likes.destroy') }}">
+                 @csrf
+              @method('DELETE')
+              <input type="hidden" name="tweet_id" value="{{ $tweet->id }}">
+               <button type="submit">いいね取り消し</button>
+           </form>
         @else
-        
+          <form method="POST" action="{{ route('likes.store') }}">
+                 @csrf
+              @method('PUT')
+              <input type="hidden" name="tweet_id" value="{{ $tweet->id }}">
+               <button type="submit">いいね</button>
+           </form>
+        @endif
      </div>
 </div>
 @endforeach
