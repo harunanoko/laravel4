@@ -36,7 +36,7 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function update(Request $request, $id)
     {
         Like::create([
             'tweet_id' => $id,
@@ -58,6 +58,6 @@ class LikesController extends Controller
         $like = Like::where('tweet_id', $id)->where('user_id', Auth::id())->first();
         $like->delete();
 
-        return redirect('/tweet');
+        return redirect('/tweets');
     }
 }
