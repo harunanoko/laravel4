@@ -21,6 +21,27 @@
 
        @endif
      </div>
+
+     <div class="likes">
+        @if($tweet->is_liked_by_auth_user())
+          <form method="POST" action="{{ route('likes.destroy', $tweet->id) }}">
+                 @csrf
+              @method('DELETE')
+              <input type="hidden" name="tweet_id" value="{{ $tweet->id }}">
+               <button class="unlikes-button" type="submit"><i class="fas fa-heart"></i></button>
+               <span>{{ $tweet->like->count() }}</span>
+           </form>
+        @else
+          <form method="POST" action="{{ route('likes.update', $tweet->id) }}">
+                 @csrf
+              @method('PUT')
+              <input type="hidden" name="tweet_id" value="{{ $tweet->id }}">
+               <button class="likes-button" type="submit"><i class="far fa-heart"></i></button>
+               <span>{{ $tweet->like->count() }}</span>
+           </form>
+        @endif
+     </div>
+
 </div>
 @endforeach
 @endsection

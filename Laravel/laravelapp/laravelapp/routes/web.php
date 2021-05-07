@@ -24,4 +24,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('users', 'UsersController');
 
     Route::resource('/tweets', 'TweetsController', ['only' => ['index', 'create', 'edit', 'update', 'destroy', 'store']]);
+
+    Route::resource('/likes', 'LikesController', ['only' => ['update', 'destroy']]);
 });
